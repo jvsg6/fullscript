@@ -51,8 +51,8 @@ def findOrCreate(curDir):
 				#print k
 				axePoints[i][j][0] = float(lst[k].split(" ")[0])
 				axePoints[i][j][1] = float(lst[k].split(" ")[1])
-				#print float(lst[k].split(" ")[0])
-				#print float(lst[k].split(" ")[1])
+				#print axePoints[i][j][0]
+				#print axePoints[i][j][1]
 				k = k + 1
 				
 		#print axePoints

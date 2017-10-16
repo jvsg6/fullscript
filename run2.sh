@@ -1,6 +1,7 @@
 #!/bin/bash
 i=1
 a=2
+b=2
 while [ $i -lt 10 ]
 do
   echo 
@@ -12,21 +13,17 @@ do
   cd 0"$i"0
   if (("$i" >= "$a"))
   then
-	if [ $i -eq $a ] 
-	then
-		cp dphi*.dat ../
-	fi
-	cp $(find ../ -name 'dphi*') ./0"$i"0/
+	cp $(find ../ -name 'dphi*') ./
   fi
   mkdir res_"$i"0
   echo START 0"$i"0!!!
   echo $(date +"%y-%m-%d %T")
   echo START 0"$i"0 GRD
-  #python createVariationalSeriesGRD.py "$PWD/SI/" 0.$i 
+  python createVariationalSeriesGRD.py "$PWD/SI/" 0.$i 
   echo START 0"$i"0 Axis
-  #python trackAxis_newest.py $PWD res_"$i"0
+  python trackAxis_newest.py $PWD res_"$i"0
   if [ $i -eq $a ]; then
-  	cp dphi*.dat ../
+  	cp $(find ../ -name 'dphi*') ../        
   fi
   
   
