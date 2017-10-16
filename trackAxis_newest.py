@@ -41,21 +41,28 @@ def findOrCreate(curDir):
 			find = True
 	if find:
 		print "find"
-		f=open(nameDphi, 'r')
-		string = f.read() 
-		lst = string.split("\n")
-		axePoints= [[[0.0 , 0.0]]*length for i in range(len(axeRadius))]
+		f=open(nameDphi, 'rt')
+		string = f.read()
+		f.close()
+		lst2 = string.split("\n")
+		axePoints= [[] for i in range(len(axeRadius))]
+		for i in range(len(axeRadius)):
+			axePoints[i].extend([[0.0,0.0] for i in range(length)])
 		k = 0
 		for i, r in enumerate(axeRadius):
 			for j in range(len(axePoints[i])):
-				#print k
-				axePoints[i][j][0] = float(lst[k].split(" ")[0])
-				axePoints[i][j][1] = float(lst[k].split(" ")[1])
+				#print float(lst2[k].split(" ")[0]),float(lst2[k].split(" ")[1]),i ,j,len(axeRadius),len(axePoints[i])
+				axePoints[i][j][0] = float(lst2[k].split(" ")[0])
+				axePoints[i][j][1] = float(lst2[k].split(" ")[1])
+				#axePoints[i][j] = [i,j]
+				#axePoints[i][j][1] = j
+				#print axePoints[i][j][0], axePoints[i][j][1]
 				#print axePoints[i][j][0]
 				#print axePoints[i][j][1]
 				k = k + 1
-				
-		#print axePoints
+
+		#print axePoints[2]
+			
 			
 	else:
 		print "not find"
